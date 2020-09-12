@@ -5,7 +5,7 @@ metadata:
   name: flux
   namespace: flux
   annotations:
-    fluxcd.io/automated: "false"
+    fluxcd.io/automated: 'false'
     fluxcd.io/tag.chart-image: semver:~1.14
 spec:
   releaseName: flux
@@ -15,5 +15,5 @@ spec:
     name: flux
     version: 1.5.0
   valuesFrom:
-  - externalSourceRef:
-      url: https://raw.githubusercontent.com/billimek/k8s-gitops/master/flux/flux/flux-values.yaml
+    - externalSourceRef:
+        url: https://raw.githubusercontent.com/alanjjenkins/k8s-gitops/master/flux/flux/flux-values.yaml

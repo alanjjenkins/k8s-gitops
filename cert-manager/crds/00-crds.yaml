@@ -20,24 +20,24 @@ metadata:
   name: certificaterequests.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.conditions[?(@.type=="Ready")].status
-    name: Ready
-    type: string
-  - JSONPath: .spec.issuerRef.name
-    name: Issuer
-    priority: 1
-    type: string
-  - JSONPath: .status.conditions[?(@.type=="Ready")].message
-    name: Status
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.conditions[?(@.type=="Ready")].status
+      name: Ready
+      type: string
+    - JSONPath: .spec.issuerRef.name
+      name: Issuer
+      priority: 1
+      type: string
+    - JSONPath: .status.conditions[?(@.type=="Ready")].message
+      name: Status
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -51,8 +51,8 @@ spec:
     listKind: CertificateRequestList
     plural: certificaterequests
     shortNames:
-    - cr
-    - crs
+      - cr
+      - crs
     singular: certificaterequest
   preserveUnknownFields: false
   scope: Namespaced
@@ -105,7 +105,7 @@ spec:
                 name:
                   type: string
               required:
-              - name
+                - name
               type: object
             usages:
               description: Usages is the set of x509 actions that are enabled for
@@ -122,34 +122,34 @@ spec:
                   user", "timestamping", "ocsp signing", "microsoft sgc", "netscape
                   sgc"'
                 enum:
-                - signing
-                - digital signature
-                - content commitment
-                - key encipherment
-                - key agreement
-                - data encipherment
-                - cert sign
-                - crl sign
-                - encipher only
-                - decipher only
-                - any
-                - server auth
-                - client auth
-                - code signing
-                - email protection
-                - s/mime
-                - ipsec end system
-                - ipsec tunnel
-                - ipsec user
-                - timestamping
-                - ocsp signing
-                - microsoft sgc
-                - netscape sgc
+                  - signing
+                  - digital signature
+                  - content commitment
+                  - key encipherment
+                  - key agreement
+                  - data encipherment
+                  - cert sign
+                  - crl sign
+                  - encipher only
+                  - decipher only
+                  - any
+                  - server auth
+                  - client auth
+                  - code signing
+                  - email protection
+                  - s/mime
+                  - ipsec end system
+                  - ipsec tunnel
+                  - ipsec user
+                  - timestamping
+                  - ocsp signing
+                  - microsoft sgc
+                  - netscape sgc
                 type: string
               type: array
           required:
-          - csr
-          - issuerRef
+            - csr
+            - issuerRef
           type: object
         status:
           description: CertificateStatus defines the observed state of CertificateRequest
@@ -187,16 +187,16 @@ spec:
                     description: Status of the condition, one of ('True', 'False',
                       'Unknown').
                     enum:
-                    - "True"
-                    - "False"
-                    - Unknown
+                      - 'True'
+                      - 'False'
+                      - Unknown
                     type: string
                   type:
                     description: Type of the condition, currently ('Ready', 'InvalidRequest').
                     type: string
                 required:
-                - status
-                - type
+                  - status
+                  - type
                 type: object
               type: array
             failureTime:
@@ -207,12 +207,12 @@ spec:
           type: object
       type: object
   versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha3
-    served: true
-    storage: false
+    - name: v1alpha2
+      served: true
+      storage: true
+    - name: v1alpha3
+      served: true
+      storage: false
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -222,27 +222,27 @@ metadata:
   name: certificates.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.conditions[?(@.type=="Ready")].status
-    name: Ready
-    type: string
-  - JSONPath: .spec.secretName
-    name: Secret
-    type: string
-  - JSONPath: .spec.issuerRef.name
-    name: Issuer
-    priority: 1
-    type: string
-  - JSONPath: .status.conditions[?(@.type=="Ready")].message
-    name: Status
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.conditions[?(@.type=="Ready")].status
+      name: Ready
+      type: string
+    - JSONPath: .spec.secretName
+      name: Secret
+      type: string
+    - JSONPath: .spec.issuerRef.name
+      name: Issuer
+      priority: 1
+      type: string
+    - JSONPath: .status.conditions[?(@.type=="Ready")].message
+      name: Status
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -256,508 +256,508 @@ spec:
     listKind: CertificateList
     plural: certificates
     shortNames:
-    - cert
-    - certs
+      - cert
+      - certs
     singular: certificate
   preserveUnknownFields: false
   scope: Namespaced
   subresources:
     status: {}
   versions:
-  - name: v1alpha2
-    schema:
-      openAPIV3Schema:
-        description: Certificate is a type to represent a Certificate from ACME
-        properties:
-          apiVersion:
-            description: 'APIVersion defines the versioned schema of this representation
-              of an object. Servers should convert recognized schemas to the latest
-              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
-            type: string
-          kind:
-            description: 'Kind is a string value representing the REST resource this
-              object represents. Servers may infer this from the endpoint the client
-              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
-            type: string
-          metadata:
-            type: object
-          spec:
-            description: CertificateSpec defines the desired state of Certificate.
-              A valid Certificate requires at least one of a CommonName, DNSName,
-              or URISAN to be valid.
-            properties:
-              commonName:
-                description: 'CommonName is a common name to be used on the Certificate.
-                  The CommonName should have a length of 64 characters or fewer to
-                  avoid generating invalid CSRs. This value is ignored by TLS clients
-                  when any subject alt name is set. This is x509 behaviour: https://tools.ietf.org/html/rfc6125#section-6.4.4'
-                type: string
-              dnsNames:
-                description: DNSNames is a list of subject alt names to be used on
-                  the Certificate.
-                items:
+    - name: v1alpha2
+      schema:
+        openAPIV3Schema:
+          description: Certificate is a type to represent a Certificate from ACME
+          properties:
+            apiVersion:
+              description: 'APIVersion defines the versioned schema of this representation
+                of an object. Servers should convert recognized schemas to the latest
+                internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+              type: string
+            kind:
+              description: 'Kind is a string value representing the REST resource this
+                object represents. Servers may infer this from the endpoint the client
+                submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: CertificateSpec defines the desired state of Certificate.
+                A valid Certificate requires at least one of a CommonName, DNSName,
+                or URISAN to be valid.
+              properties:
+                commonName:
+                  description: 'CommonName is a common name to be used on the Certificate.
+                    The CommonName should have a length of 64 characters or fewer to
+                    avoid generating invalid CSRs. This value is ignored by TLS clients
+                    when any subject alt name is set. This is x509 behaviour: https://tools.ietf.org/html/rfc6125#section-6.4.4'
                   type: string
-                type: array
-              duration:
-                description: Certificate default Duration
-                type: string
-              emailSANs:
-                description: EmailSANs is a list of Email Subject Alternative Names
-                  to be set on this Certificate.
-                items:
-                  type: string
-                type: array
-              ipAddresses:
-                description: IPAddresses is a list of IP addresses to be used on the
-                  Certificate
-                items:
-                  type: string
-                type: array
-              isCA:
-                description: IsCA will mark this Certificate as valid for signing.
-                  This implies that the 'cert sign' usage is set
-                type: boolean
-              issuerRef:
-                description: IssuerRef is a reference to the issuer for this certificate.
-                  If the 'kind' field is not set, or set to 'Issuer', an Issuer resource
-                  with the given name in the same namespace as the Certificate will
-                  be used. If the 'kind' field is set to 'ClusterIssuer', a ClusterIssuer
-                  with the provided name will be used. The 'name' field in this stanza
-                  is required at all times.
-                properties:
-                  group:
+                dnsNames:
+                  description: DNSNames is a list of subject alt names to be used on
+                    the Certificate.
+                  items:
                     type: string
-                  kind:
-                    type: string
-                  name:
-                    type: string
-                required:
-                - name
-                type: object
-              keyAlgorithm:
-                description: KeyAlgorithm is the private key algorithm of the corresponding
-                  private key for this certificate. If provided, allowed values are
-                  either "rsa" or "ecdsa" If KeyAlgorithm is specified and KeySize
-                  is not provided, key size of 256 will be used for "ecdsa" key algorithm
-                  and key size of 2048 will be used for "rsa" key algorithm.
-                enum:
-                - rsa
-                - ecdsa
-                type: string
-              keyEncoding:
-                description: KeyEncoding is the private key cryptography standards
-                  (PKCS) for this certificate's private key to be encoded in. If provided,
-                  allowed values are "pkcs1" and "pkcs8" standing for PKCS#1 and PKCS#8,
-                  respectively. If KeyEncoding is not specified, then PKCS#1 will
-                  be used by default.
-                enum:
-                - pkcs1
-                - pkcs8
-                type: string
-              keySize:
-                description: KeySize is the key bit size of the corresponding private
-                  key for this certificate. If provided, value must be between 2048
-                  and 8192 inclusive when KeyAlgorithm is empty or is set to "rsa",
-                  and value must be one of (256, 384, 521) when KeyAlgorithm is set
-                  to "ecdsa".
-                maximum: 8192
-                minimum: 0
-                type: integer
-              organization:
-                description: Organization is the organization to be used on the Certificate
-                items:
+                  type: array
+                duration:
+                  description: Certificate default Duration
                   type: string
-                type: array
-              renewBefore:
-                description: Certificate renew before expiration duration
-                type: string
-              secretName:
-                description: SecretName is the name of the secret resource to store
-                  this secret in
-                type: string
-              subject:
-                description: Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name).
-                properties:
-                  countries:
-                    description: Countries to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  localities:
-                    description: Cities to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  organizationalUnits:
-                    description: Organizational Units to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  postalCodes:
-                    description: Postal codes to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  provinces:
-                    description: State/Provinces to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  serialNumber:
-                    description: Serial number to be used on the Certificate.
+                emailSANs:
+                  description: EmailSANs is a list of Email Subject Alternative Names
+                    to be set on this Certificate.
+                  items:
                     type: string
-                  streetAddresses:
-                    description: Street addresses to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                type: object
-              uriSANs:
-                description: URISANs is a list of URI Subject Alternative Names to
-                  be set on this Certificate.
-                items:
-                  type: string
-                type: array
-              usages:
-                description: Usages is the set of x509 actions that are enabled for
-                  a given key. Defaults are ('digital signature', 'key encipherment')
-                  if empty
-                items:
-                  description: 'KeyUsage specifies valid usage contexts for keys.
-                    See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
-                    Valid KeyUsage values are as follows: "signing", "digital signature",
-                    "content commitment", "key encipherment", "key agreement", "data
-                    encipherment", "cert sign", "crl sign", "encipher only", "decipher
-                    only", "any", "server auth", "client auth", "code signing", "email
-                    protection", "s/mime", "ipsec end system", "ipsec tunnel", "ipsec
-                    user", "timestamping", "ocsp signing", "microsoft sgc", "netscape
-                    sgc"'
-                  enum:
-                  - signing
-                  - digital signature
-                  - content commitment
-                  - key encipherment
-                  - key agreement
-                  - data encipherment
-                  - cert sign
-                  - crl sign
-                  - encipher only
-                  - decipher only
-                  - any
-                  - server auth
-                  - client auth
-                  - code signing
-                  - email protection
-                  - s/mime
-                  - ipsec end system
-                  - ipsec tunnel
-                  - ipsec user
-                  - timestamping
-                  - ocsp signing
-                  - microsoft sgc
-                  - netscape sgc
-                  type: string
-                type: array
-            required:
-            - issuerRef
-            - secretName
-            type: object
-          status:
-            description: CertificateStatus defines the observed state of Certificate
-            properties:
-              conditions:
-                items:
-                  description: CertificateCondition contains condition information
-                    for an Certificate.
+                  type: array
+                ipAddresses:
+                  description: IPAddresses is a list of IP addresses to be used on the
+                    Certificate
+                  items:
+                    type: string
+                  type: array
+                isCA:
+                  description: IsCA will mark this Certificate as valid for signing.
+                    This implies that the 'cert sign' usage is set
+                  type: boolean
+                issuerRef:
+                  description: IssuerRef is a reference to the issuer for this certificate.
+                    If the 'kind' field is not set, or set to 'Issuer', an Issuer resource
+                    with the given name in the same namespace as the Certificate will
+                    be used. If the 'kind' field is set to 'ClusterIssuer', a ClusterIssuer
+                    with the provided name will be used. The 'name' field in this stanza
+                    is required at all times.
                   properties:
-                    lastTransitionTime:
-                      description: LastTransitionTime is the timestamp corresponding
-                        to the last status change of this condition.
-                      format: date-time
+                    group:
                       type: string
-                    message:
-                      description: Message is a human readable description of the
-                        details of the last transition, complementing reason.
+                    kind:
                       type: string
-                    reason:
-                      description: Reason is a brief machine readable explanation
-                        for the condition's last transition.
-                      type: string
-                    status:
-                      description: Status of the condition, one of ('True', 'False',
-                        'Unknown').
-                      enum:
-                      - "True"
-                      - "False"
-                      - Unknown
-                      type: string
-                    type:
-                      description: Type of the condition, currently ('Ready').
+                    name:
                       type: string
                   required:
-                  - status
-                  - type
+                    - name
                   type: object
-                type: array
-              lastFailureTime:
-                format: date-time
-                type: string
-              notAfter:
-                description: The expiration time of the certificate stored in the
-                  secret named by this resource in spec.secretName.
-                format: date-time
-                type: string
-            type: object
-        type: object
-    served: true
-    storage: true
-  - name: v1alpha3
-    schema:
-      openAPIV3Schema:
-        description: Certificate is a type to represent a Certificate from ACME
-        properties:
-          apiVersion:
-            description: 'APIVersion defines the versioned schema of this representation
-              of an object. Servers should convert recognized schemas to the latest
-              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
-            type: string
-          kind:
-            description: 'Kind is a string value representing the REST resource this
-              object represents. Servers may infer this from the endpoint the client
-              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
-            type: string
-          metadata:
-            type: object
-          spec:
-            description: CertificateSpec defines the desired state of Certificate.
-              A valid Certificate requires at least one of a CommonName, DNSName,
-              or URISAN to be valid.
-            properties:
-              commonName:
-                description: 'CommonName is a common name to be used on the Certificate.
-                  The CommonName should have a length of 64 characters or fewer to
-                  avoid generating invalid CSRs. This value is ignored by TLS clients
-                  when any subject alt name is set. This is x509 behaviour: https://tools.ietf.org/html/rfc6125#section-6.4.4'
-                type: string
-              dnsNames:
-                description: DNSNames is a list of subject alt names to be used on
-                  the Certificate.
-                items:
-                  type: string
-                type: array
-              duration:
-                description: Certificate default Duration
-                type: string
-              emailSANs:
-                description: EmailSANs is a list of Email Subject Alternative Names
-                  to be set on this Certificate.
-                items:
-                  type: string
-                type: array
-              ipAddresses:
-                description: IPAddresses is a list of IP addresses to be used on the
-                  Certificate
-                items:
-                  type: string
-                type: array
-              isCA:
-                description: IsCA will mark this Certificate as valid for signing.
-                  This implies that the 'cert sign' usage is set
-                type: boolean
-              issuerRef:
-                description: IssuerRef is a reference to the issuer for this certificate.
-                  If the 'kind' field is not set, or set to 'Issuer', an Issuer resource
-                  with the given name in the same namespace as the Certificate will
-                  be used. If the 'kind' field is set to 'ClusterIssuer', a ClusterIssuer
-                  with the provided name will be used. The 'name' field in this stanza
-                  is required at all times.
-                properties:
-                  group:
-                    type: string
-                  kind:
-                    type: string
-                  name:
-                    type: string
-                required:
-                - name
-                type: object
-              keyAlgorithm:
-                description: KeyAlgorithm is the private key algorithm of the corresponding
-                  private key for this certificate. If provided, allowed values are
-                  either "rsa" or "ecdsa" If KeyAlgorithm is specified and KeySize
-                  is not provided, key size of 256 will be used for "ecdsa" key algorithm
-                  and key size of 2048 will be used for "rsa" key algorithm.
-                enum:
-                - rsa
-                - ecdsa
-                type: string
-              keyEncoding:
-                description: KeyEncoding is the private key cryptography standards
-                  (PKCS) for this certificate's private key to be encoded in. If provided,
-                  allowed values are "pkcs1" and "pkcs8" standing for PKCS#1 and PKCS#8,
-                  respectively. If KeyEncoding is not specified, then PKCS#1 will
-                  be used by default.
-                enum:
-                - pkcs1
-                - pkcs8
-                type: string
-              keySize:
-                description: KeySize is the key bit size of the corresponding private
-                  key for this certificate. If provided, value must be between 2048
-                  and 8192 inclusive when KeyAlgorithm is empty or is set to "rsa",
-                  and value must be one of (256, 384, 521) when KeyAlgorithm is set
-                  to "ecdsa".
-                maximum: 8192
-                minimum: 0
-                type: integer
-              renewBefore:
-                description: Certificate renew before expiration duration
-                type: string
-              secretName:
-                description: SecretName is the name of the secret resource to store
-                  this secret in
-                type: string
-              subject:
-                description: Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name).
-                properties:
-                  countries:
-                    description: Countries to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  localities:
-                    description: Cities to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  organizationalUnits:
-                    description: Organizational Units to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  organizations:
-                    description: Organizations to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  postalCodes:
-                    description: Postal codes to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  provinces:
-                    description: State/Provinces to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                  serialNumber:
-                    description: Serial number to be used on the Certificate.
-                    type: string
-                  streetAddresses:
-                    description: Street addresses to be used on the Certificate.
-                    items:
-                      type: string
-                    type: array
-                type: object
-              uriSANs:
-                description: URISANs is a list of URI Subject Alternative Names to
-                  be set on this Certificate.
-                items:
-                  type: string
-                type: array
-              usages:
-                description: Usages is the set of x509 actions that are enabled for
-                  a given key. Defaults are ('digital signature', 'key encipherment')
-                  if empty
-                items:
-                  description: 'KeyUsage specifies valid usage contexts for keys.
-                    See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
-                    Valid KeyUsage values are as follows: "signing", "digital signature",
-                    "content commitment", "key encipherment", "key agreement", "data
-                    encipherment", "cert sign", "crl sign", "encipher only", "decipher
-                    only", "any", "server auth", "client auth", "code signing", "email
-                    protection", "s/mime", "ipsec end system", "ipsec tunnel", "ipsec
-                    user", "timestamping", "ocsp signing", "microsoft sgc", "netscape
-                    sgc"'
+                keyAlgorithm:
+                  description: KeyAlgorithm is the private key algorithm of the corresponding
+                    private key for this certificate. If provided, allowed values are
+                    either "rsa" or "ecdsa" If KeyAlgorithm is specified and KeySize
+                    is not provided, key size of 256 will be used for "ecdsa" key algorithm
+                    and key size of 2048 will be used for "rsa" key algorithm.
                   enum:
-                  - signing
-                  - digital signature
-                  - content commitment
-                  - key encipherment
-                  - key agreement
-                  - data encipherment
-                  - cert sign
-                  - crl sign
-                  - encipher only
-                  - decipher only
-                  - any
-                  - server auth
-                  - client auth
-                  - code signing
-                  - email protection
-                  - s/mime
-                  - ipsec end system
-                  - ipsec tunnel
-                  - ipsec user
-                  - timestamping
-                  - ocsp signing
-                  - microsoft sgc
-                  - netscape sgc
+                    - rsa
+                    - ecdsa
                   type: string
-                type: array
-            required:
-            - issuerRef
-            - secretName
-            type: object
-          status:
-            description: CertificateStatus defines the observed state of Certificate
-            properties:
-              conditions:
-                items:
-                  description: CertificateCondition contains condition information
-                    for an Certificate.
+                keyEncoding:
+                  description: KeyEncoding is the private key cryptography standards
+                    (PKCS) for this certificate's private key to be encoded in. If provided,
+                    allowed values are "pkcs1" and "pkcs8" standing for PKCS#1 and PKCS#8,
+                    respectively. If KeyEncoding is not specified, then PKCS#1 will
+                    be used by default.
+                  enum:
+                    - pkcs1
+                    - pkcs8
+                  type: string
+                keySize:
+                  description: KeySize is the key bit size of the corresponding private
+                    key for this certificate. If provided, value must be between 2048
+                    and 8192 inclusive when KeyAlgorithm is empty or is set to "rsa",
+                    and value must be one of (256, 384, 521) when KeyAlgorithm is set
+                    to "ecdsa".
+                  maximum: 8192
+                  minimum: 0
+                  type: integer
+                organization:
+                  description: Organization is the organization to be used on the Certificate
+                  items:
+                    type: string
+                  type: array
+                renewBefore:
+                  description: Certificate renew before expiration duration
+                  type: string
+                secretName:
+                  description: SecretName is the name of the secret resource to store
+                    this secret in
+                  type: string
+                subject:
+                  description: Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name).
                   properties:
-                    lastTransitionTime:
-                      description: LastTransitionTime is the timestamp corresponding
-                        to the last status change of this condition.
-                      format: date-time
+                    countries:
+                      description: Countries to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    localities:
+                      description: Cities to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    organizationalUnits:
+                      description: Organizational Units to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    postalCodes:
+                      description: Postal codes to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    provinces:
+                      description: State/Provinces to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    serialNumber:
+                      description: Serial number to be used on the Certificate.
                       type: string
-                    message:
-                      description: Message is a human readable description of the
-                        details of the last transition, complementing reason.
+                    streetAddresses:
+                      description: Street addresses to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                  type: object
+                uriSANs:
+                  description: URISANs is a list of URI Subject Alternative Names to
+                    be set on this Certificate.
+                  items:
+                    type: string
+                  type: array
+                usages:
+                  description: Usages is the set of x509 actions that are enabled for
+                    a given key. Defaults are ('digital signature', 'key encipherment')
+                    if empty
+                  items:
+                    description: 'KeyUsage specifies valid usage contexts for keys.
+                      See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+                      Valid KeyUsage values are as follows: "signing", "digital signature",
+                      "content commitment", "key encipherment", "key agreement", "data
+                      encipherment", "cert sign", "crl sign", "encipher only", "decipher
+                      only", "any", "server auth", "client auth", "code signing", "email
+                      protection", "s/mime", "ipsec end system", "ipsec tunnel", "ipsec
+                      user", "timestamping", "ocsp signing", "microsoft sgc", "netscape
+                      sgc"'
+                    enum:
+                      - signing
+                      - digital signature
+                      - content commitment
+                      - key encipherment
+                      - key agreement
+                      - data encipherment
+                      - cert sign
+                      - crl sign
+                      - encipher only
+                      - decipher only
+                      - any
+                      - server auth
+                      - client auth
+                      - code signing
+                      - email protection
+                      - s/mime
+                      - ipsec end system
+                      - ipsec tunnel
+                      - ipsec user
+                      - timestamping
+                      - ocsp signing
+                      - microsoft sgc
+                      - netscape sgc
+                    type: string
+                  type: array
+              required:
+                - issuerRef
+                - secretName
+              type: object
+            status:
+              description: CertificateStatus defines the observed state of Certificate
+              properties:
+                conditions:
+                  items:
+                    description: CertificateCondition contains condition information
+                      for an Certificate.
+                    properties:
+                      lastTransitionTime:
+                        description: LastTransitionTime is the timestamp corresponding
+                          to the last status change of this condition.
+                        format: date-time
+                        type: string
+                      message:
+                        description: Message is a human readable description of the
+                          details of the last transition, complementing reason.
+                        type: string
+                      reason:
+                        description: Reason is a brief machine readable explanation
+                          for the condition's last transition.
+                        type: string
+                      status:
+                        description: Status of the condition, one of ('True', 'False',
+                          'Unknown').
+                        enum:
+                          - 'True'
+                          - 'False'
+                          - Unknown
+                        type: string
+                      type:
+                        description: Type of the condition, currently ('Ready').
+                        type: string
+                    required:
+                      - status
+                      - type
+                    type: object
+                  type: array
+                lastFailureTime:
+                  format: date-time
+                  type: string
+                notAfter:
+                  description: The expiration time of the certificate stored in the
+                    secret named by this resource in spec.secretName.
+                  format: date-time
+                  type: string
+              type: object
+          type: object
+      served: true
+      storage: true
+    - name: v1alpha3
+      schema:
+        openAPIV3Schema:
+          description: Certificate is a type to represent a Certificate from ACME
+          properties:
+            apiVersion:
+              description: 'APIVersion defines the versioned schema of this representation
+                of an object. Servers should convert recognized schemas to the latest
+                internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+              type: string
+            kind:
+              description: 'Kind is a string value representing the REST resource this
+                object represents. Servers may infer this from the endpoint the client
+                submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: CertificateSpec defines the desired state of Certificate.
+                A valid Certificate requires at least one of a CommonName, DNSName,
+                or URISAN to be valid.
+              properties:
+                commonName:
+                  description: 'CommonName is a common name to be used on the Certificate.
+                    The CommonName should have a length of 64 characters or fewer to
+                    avoid generating invalid CSRs. This value is ignored by TLS clients
+                    when any subject alt name is set. This is x509 behaviour: https://tools.ietf.org/html/rfc6125#section-6.4.4'
+                  type: string
+                dnsNames:
+                  description: DNSNames is a list of subject alt names to be used on
+                    the Certificate.
+                  items:
+                    type: string
+                  type: array
+                duration:
+                  description: Certificate default Duration
+                  type: string
+                emailSANs:
+                  description: EmailSANs is a list of Email Subject Alternative Names
+                    to be set on this Certificate.
+                  items:
+                    type: string
+                  type: array
+                ipAddresses:
+                  description: IPAddresses is a list of IP addresses to be used on the
+                    Certificate
+                  items:
+                    type: string
+                  type: array
+                isCA:
+                  description: IsCA will mark this Certificate as valid for signing.
+                    This implies that the 'cert sign' usage is set
+                  type: boolean
+                issuerRef:
+                  description: IssuerRef is a reference to the issuer for this certificate.
+                    If the 'kind' field is not set, or set to 'Issuer', an Issuer resource
+                    with the given name in the same namespace as the Certificate will
+                    be used. If the 'kind' field is set to 'ClusterIssuer', a ClusterIssuer
+                    with the provided name will be used. The 'name' field in this stanza
+                    is required at all times.
+                  properties:
+                    group:
                       type: string
-                    reason:
-                      description: Reason is a brief machine readable explanation
-                        for the condition's last transition.
+                    kind:
                       type: string
-                    status:
-                      description: Status of the condition, one of ('True', 'False',
-                        'Unknown').
-                      enum:
-                      - "True"
-                      - "False"
-                      - Unknown
-                      type: string
-                    type:
-                      description: Type of the condition, currently ('Ready').
+                    name:
                       type: string
                   required:
-                  - status
-                  - type
+                    - name
                   type: object
-                type: array
-              lastFailureTime:
-                format: date-time
-                type: string
-              notAfter:
-                description: The expiration time of the certificate stored in the
-                  secret named by this resource in spec.secretName.
-                format: date-time
-                type: string
-            type: object
-        type: object
-    served: true
-    storage: false
+                keyAlgorithm:
+                  description: KeyAlgorithm is the private key algorithm of the corresponding
+                    private key for this certificate. If provided, allowed values are
+                    either "rsa" or "ecdsa" If KeyAlgorithm is specified and KeySize
+                    is not provided, key size of 256 will be used for "ecdsa" key algorithm
+                    and key size of 2048 will be used for "rsa" key algorithm.
+                  enum:
+                    - rsa
+                    - ecdsa
+                  type: string
+                keyEncoding:
+                  description: KeyEncoding is the private key cryptography standards
+                    (PKCS) for this certificate's private key to be encoded in. If provided,
+                    allowed values are "pkcs1" and "pkcs8" standing for PKCS#1 and PKCS#8,
+                    respectively. If KeyEncoding is not specified, then PKCS#1 will
+                    be used by default.
+                  enum:
+                    - pkcs1
+                    - pkcs8
+                  type: string
+                keySize:
+                  description: KeySize is the key bit size of the corresponding private
+                    key for this certificate. If provided, value must be between 2048
+                    and 8192 inclusive when KeyAlgorithm is empty or is set to "rsa",
+                    and value must be one of (256, 384, 521) when KeyAlgorithm is set
+                    to "ecdsa".
+                  maximum: 8192
+                  minimum: 0
+                  type: integer
+                renewBefore:
+                  description: Certificate renew before expiration duration
+                  type: string
+                secretName:
+                  description: SecretName is the name of the secret resource to store
+                    this secret in
+                  type: string
+                subject:
+                  description: Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name).
+                  properties:
+                    countries:
+                      description: Countries to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    localities:
+                      description: Cities to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    organizationalUnits:
+                      description: Organizational Units to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    organizations:
+                      description: Organizations to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    postalCodes:
+                      description: Postal codes to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    provinces:
+                      description: State/Provinces to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                    serialNumber:
+                      description: Serial number to be used on the Certificate.
+                      type: string
+                    streetAddresses:
+                      description: Street addresses to be used on the Certificate.
+                      items:
+                        type: string
+                      type: array
+                  type: object
+                uriSANs:
+                  description: URISANs is a list of URI Subject Alternative Names to
+                    be set on this Certificate.
+                  items:
+                    type: string
+                  type: array
+                usages:
+                  description: Usages is the set of x509 actions that are enabled for
+                    a given key. Defaults are ('digital signature', 'key encipherment')
+                    if empty
+                  items:
+                    description: 'KeyUsage specifies valid usage contexts for keys.
+                      See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+                      Valid KeyUsage values are as follows: "signing", "digital signature",
+                      "content commitment", "key encipherment", "key agreement", "data
+                      encipherment", "cert sign", "crl sign", "encipher only", "decipher
+                      only", "any", "server auth", "client auth", "code signing", "email
+                      protection", "s/mime", "ipsec end system", "ipsec tunnel", "ipsec
+                      user", "timestamping", "ocsp signing", "microsoft sgc", "netscape
+                      sgc"'
+                    enum:
+                      - signing
+                      - digital signature
+                      - content commitment
+                      - key encipherment
+                      - key agreement
+                      - data encipherment
+                      - cert sign
+                      - crl sign
+                      - encipher only
+                      - decipher only
+                      - any
+                      - server auth
+                      - client auth
+                      - code signing
+                      - email protection
+                      - s/mime
+                      - ipsec end system
+                      - ipsec tunnel
+                      - ipsec user
+                      - timestamping
+                      - ocsp signing
+                      - microsoft sgc
+                      - netscape sgc
+                    type: string
+                  type: array
+              required:
+                - issuerRef
+                - secretName
+              type: object
+            status:
+              description: CertificateStatus defines the observed state of Certificate
+              properties:
+                conditions:
+                  items:
+                    description: CertificateCondition contains condition information
+                      for an Certificate.
+                    properties:
+                      lastTransitionTime:
+                        description: LastTransitionTime is the timestamp corresponding
+                          to the last status change of this condition.
+                        format: date-time
+                        type: string
+                      message:
+                        description: Message is a human readable description of the
+                          details of the last transition, complementing reason.
+                        type: string
+                      reason:
+                        description: Reason is a brief machine readable explanation
+                          for the condition's last transition.
+                        type: string
+                      status:
+                        description: Status of the condition, one of ('True', 'False',
+                          'Unknown').
+                        enum:
+                          - 'True'
+                          - 'False'
+                          - Unknown
+                        type: string
+                      type:
+                        description: Type of the condition, currently ('Ready').
+                        type: string
+                    required:
+                      - status
+                      - type
+                    type: object
+                  type: array
+                lastFailureTime:
+                  format: date-time
+                  type: string
+                notAfter:
+                  description: The expiration time of the certificate stored in the
+                    secret named by this resource in spec.secretName.
+                  format: date-time
+                  type: string
+              type: object
+          type: object
+      served: true
+      storage: false
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -767,23 +767,23 @@ metadata:
   name: challenges.acme.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.state
-    name: State
-    type: string
-  - JSONPath: .spec.dnsName
-    name: Domain
-    type: string
-  - JSONPath: .status.reason
-    name: Reason
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.state
+      name: State
+      type: string
+    - JSONPath: .spec.dnsName
+      name: Domain
+      type: string
+    - JSONPath: .status.reason
+      name: Reason
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -842,7 +842,7 @@ spec:
                 name:
                   type: string
               required:
-              - name
+                - name
               type: object
             key:
               description: Key is the ACME challenge key for this challenge
@@ -868,13 +868,13 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         host:
                           type: string
                       required:
-                      - accountSecretRef
-                      - host
+                        - accountSecretRef
+                        - host
                       type: object
                     akamai:
                       description: ACMEIssuerDNS01ProviderAkamai is a structure containing
@@ -892,7 +892,7 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         clientSecretSecretRef:
                           properties:
@@ -905,7 +905,7 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         clientTokenSecretRef:
                           properties:
@@ -918,15 +918,15 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         serviceConsumerDomain:
                           type: string
                       required:
-                      - accessTokenSecretRef
-                      - clientSecretSecretRef
-                      - clientTokenSecretRef
-                      - serviceConsumerDomain
+                        - accessTokenSecretRef
+                        - clientSecretSecretRef
+                        - clientTokenSecretRef
+                        - serviceConsumerDomain
                       type: object
                     azuredns:
                       description: ACMEIssuerDNS01ProviderAzureDNS is a structure
@@ -945,14 +945,14 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         environment:
                           enum:
-                          - AzurePublicCloud
-                          - AzureChinaCloud
-                          - AzureGermanCloud
-                          - AzureUSGovernmentCloud
+                            - AzurePublicCloud
+                            - AzureChinaCloud
+                            - AzureGermanCloud
+                            - AzureUSGovernmentCloud
                           type: string
                         hostedZoneName:
                           type: string
@@ -963,11 +963,11 @@ spec:
                         tenantID:
                           type: string
                       required:
-                      - clientID
-                      - clientSecretSecretRef
-                      - resourceGroupName
-                      - subscriptionID
-                      - tenantID
+                        - clientID
+                        - clientSecretSecretRef
+                        - resourceGroupName
+                        - subscriptionID
+                        - tenantID
                       type: object
                     clouddns:
                       description: ACMEIssuerDNS01ProviderCloudDNS is a structure
@@ -986,10 +986,10 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - project
+                        - project
                       type: object
                     cloudflare:
                       description: ACMEIssuerDNS01ProviderCloudflare is a structure
@@ -1006,7 +1006,7 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         apiTokenSecretRef:
                           properties:
@@ -1019,19 +1019,19 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                         email:
                           type: string
                       required:
-                      - email
+                        - email
                       type: object
                     cnameStrategy:
                       description: CNAMEStrategy configures how the DNS01 provider
                         should handle CNAME records when found in DNS zones.
                       enum:
-                      - None
-                      - Follow
+                        - None
+                        - Follow
                       type: string
                     digitalocean:
                       description: ACMEIssuerDNS01ProviderDigitalOcean is a structure
@@ -1048,10 +1048,10 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - tokenSecretRef
+                        - tokenSecretRef
                       type: object
                     rfc2136:
                       description: ACMEIssuerDNS01ProviderRFC2136 is a structure containing
@@ -1085,10 +1085,10 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - nameserver
+                        - nameserver
                       type: object
                     route53:
                       description: ACMEIssuerDNS01ProviderRoute53 is a structure containing
@@ -1128,10 +1128,10 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - region
+                        - region
                       type: object
                     webhook:
                       description: ACMEIssuerDNS01ProviderWebhook specifies configuration
@@ -1160,8 +1160,8 @@ spec:
                             be the name of the provider, e.g. 'cloudflare'.
                           type: string
                       required:
-                      - groupName
-                      - solverName
+                        - groupName
+                        - solverName
                       type: object
                   type: object
                 http01:
@@ -1301,8 +1301,8 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                   matchFields:
@@ -1348,8 +1348,8 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                 type: object
@@ -1360,8 +1360,8 @@ spec:
                                                 format: int32
                                                 type: integer
                                             required:
-                                            - preference
-                                            - weight
+                                              - preference
+                                              - weight
                                             type: object
                                           type: array
                                         requiredDuringSchedulingIgnoredDuringExecution:
@@ -1428,8 +1428,8 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                   matchFields:
@@ -1475,14 +1475,14 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                 type: object
                                               type: array
                                           required:
-                                          - nodeSelectorTerms
+                                            - nodeSelectorTerms
                                           type: object
                                       type: object
                                     podAffinity:
@@ -1569,8 +1569,8 @@ spec:
                                                                 type: string
                                                               type: array
                                                           required:
-                                                          - key
-                                                          - operator
+                                                            - key
+                                                            - operator
                                                           type: object
                                                         type: array
                                                       matchLabels:
@@ -1612,7 +1612,7 @@ spec:
                                                       is not allowed.
                                                     type: string
                                                 required:
-                                                - topologyKey
+                                                  - topologyKey
                                                 type: object
                                               weight:
                                                 description: weight associated with
@@ -1621,8 +1621,8 @@ spec:
                                                 format: int32
                                                 type: integer
                                             required:
-                                            - podAffinityTerm
-                                            - weight
+                                              - podAffinityTerm
+                                              - weight
                                             type: object
                                           type: array
                                         requiredDuringSchedulingIgnoredDuringExecution:
@@ -1694,8 +1694,8 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                   matchLabels:
@@ -1734,7 +1734,7 @@ spec:
                                                   topologyKey is not allowed.
                                                 type: string
                                             required:
-                                            - topologyKey
+                                              - topologyKey
                                             type: object
                                           type: array
                                       type: object
@@ -1822,8 +1822,8 @@ spec:
                                                                 type: string
                                                               type: array
                                                           required:
-                                                          - key
-                                                          - operator
+                                                            - key
+                                                            - operator
                                                           type: object
                                                         type: array
                                                       matchLabels:
@@ -1865,7 +1865,7 @@ spec:
                                                       is not allowed.
                                                     type: string
                                                 required:
-                                                - topologyKey
+                                                  - topologyKey
                                                 type: object
                                               weight:
                                                 description: weight associated with
@@ -1874,8 +1874,8 @@ spec:
                                                 format: int32
                                                 type: integer
                                             required:
-                                            - podAffinityTerm
-                                            - weight
+                                              - podAffinityTerm
+                                              - weight
                                             type: object
                                           type: array
                                         requiredDuringSchedulingIgnoredDuringExecution:
@@ -1947,8 +1947,8 @@ spec:
                                                             type: string
                                                           type: array
                                                       required:
-                                                      - key
-                                                      - operator
+                                                        - key
+                                                        - operator
                                                       type: object
                                                     type: array
                                                   matchLabels:
@@ -1987,7 +1987,7 @@ spec:
                                                   topologyKey is not allowed.
                                                 type: string
                                             required:
-                                            - topologyKey
+                                              - topologyKey
                                             type: object
                                           type: array
                                       type: object
@@ -1995,10 +1995,10 @@ spec:
                                 nodeSelector:
                                   additionalProperties:
                                     type: string
-                                  description: 'NodeSelector is a selector which must
+                                  description: "NodeSelector is a selector which must
                                     be true for the pod to fit on a node. Selector
-                                    which must match a node''s labels for the pod
-                                    to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/'
+                                    which must match a node's labels for the pod
+                                    to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/"
                                   type: object
                                 tolerations:
                                   description: If specified, the pod's tolerations.
@@ -2109,13 +2109,13 @@ spec:
                 identifier, for example '*.example.com'
               type: boolean
           required:
-          - authzURL
-          - dnsName
-          - issuerRef
-          - key
-          - token
-          - type
-          - url
+            - authzURL
+            - dnsName
+            - issuerRef
+            - key
+            - token
+            - type
+            - url
           type: object
         status:
           properties:
@@ -2142,25 +2142,25 @@ spec:
               description: State contains the current 'state' of the challenge. If
                 not set, the state of the challenge is unknown.
               enum:
-              - valid
-              - ready
-              - pending
-              - processing
-              - invalid
-              - expired
-              - errored
+                - valid
+                - ready
+                - pending
+                - processing
+                - invalid
+                - expired
+                - errored
               type: string
           type: object
       required:
-      - metadata
+        - metadata
       type: object
   versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha3
-    served: true
-    storage: false
+    - name: v1alpha2
+      served: true
+      storage: true
+    - name: v1alpha3
+      served: true
+      storage: false
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -2170,20 +2170,20 @@ metadata:
   name: clusterissuers.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.conditions[?(@.type=="Ready")].status
-    name: Ready
-    type: string
-  - JSONPath: .status.conditions[?(@.type=="Ready")].message
-    name: Status
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.conditions[?(@.type=="Ready")].status
+      name: Ready
+      type: string
+    - JSONPath: .status.conditions[?(@.type=="Ready")].message
+      name: Status
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -2234,9 +2234,9 @@ spec:
                       description: keyAlgorithm is the MAC key algorithm that the
                         key is used for. Valid values are "HS256", "HS384" and "HS512".
                       enum:
-                      - HS256
-                      - HS384
-                      - HS512
+                        - HS256
+                        - HS384
+                        - HS512
                       type: string
                     keyID:
                       description: keyID is the ID of the CA key that the External
@@ -2261,12 +2261,12 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                   required:
-                  - keyAlgorithm
-                  - keyID
-                  - keySecretRef
+                    - keyAlgorithm
+                    - keyID
+                    - keySecretRef
                   type: object
                 privateKeySecretRef:
                   description: PrivateKey is the name of a secret containing the private
@@ -2281,7 +2281,7 @@ spec:
                         TODO: Add other useful fields. apiVersion, kind, uid?'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 server:
                   description: Server is the ACME server URL
@@ -2313,13 +2313,13 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               host:
                                 type: string
                             required:
-                            - accountSecretRef
-                            - host
+                              - accountSecretRef
+                              - host
                             type: object
                           akamai:
                             description: ACMEIssuerDNS01ProviderAkamai is a structure
@@ -2339,7 +2339,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               clientSecretSecretRef:
                                 properties:
@@ -2354,7 +2354,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               clientTokenSecretRef:
                                 properties:
@@ -2369,15 +2369,15 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               serviceConsumerDomain:
                                 type: string
                             required:
-                            - accessTokenSecretRef
-                            - clientSecretSecretRef
-                            - clientTokenSecretRef
-                            - serviceConsumerDomain
+                              - accessTokenSecretRef
+                              - clientSecretSecretRef
+                              - clientTokenSecretRef
+                              - serviceConsumerDomain
                             type: object
                           azuredns:
                             description: ACMEIssuerDNS01ProviderAzureDNS is a structure
@@ -2398,14 +2398,14 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               environment:
                                 enum:
-                                - AzurePublicCloud
-                                - AzureChinaCloud
-                                - AzureGermanCloud
-                                - AzureUSGovernmentCloud
+                                  - AzurePublicCloud
+                                  - AzureChinaCloud
+                                  - AzureGermanCloud
+                                  - AzureUSGovernmentCloud
                                 type: string
                               hostedZoneName:
                                 type: string
@@ -2416,11 +2416,11 @@ spec:
                               tenantID:
                                 type: string
                             required:
-                            - clientID
-                            - clientSecretSecretRef
-                            - resourceGroupName
-                            - subscriptionID
-                            - tenantID
+                              - clientID
+                              - clientSecretSecretRef
+                              - resourceGroupName
+                              - subscriptionID
+                              - tenantID
                             type: object
                           clouddns:
                             description: ACMEIssuerDNS01ProviderCloudDNS is a structure
@@ -2441,10 +2441,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - project
+                              - project
                             type: object
                           cloudflare:
                             description: ACMEIssuerDNS01ProviderCloudflare is a structure
@@ -2463,7 +2463,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               apiTokenSecretRef:
                                 properties:
@@ -2478,19 +2478,19 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               email:
                                 type: string
                             required:
-                            - email
+                              - email
                             type: object
                           cnameStrategy:
                             description: CNAMEStrategy configures how the DNS01 provider
                               should handle CNAME records when found in DNS zones.
                             enum:
-                            - None
-                            - Follow
+                              - None
+                              - Follow
                             type: string
                           digitalocean:
                             description: ACMEIssuerDNS01ProviderDigitalOcean is a
@@ -2510,10 +2510,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - tokenSecretRef
+                              - tokenSecretRef
                             type: object
                           rfc2136:
                             description: ACMEIssuerDNS01ProviderRFC2136 is a structure
@@ -2552,10 +2552,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - nameserver
+                              - nameserver
                             type: object
                           route53:
                             description: ACMEIssuerDNS01ProviderRoute53 is a structure
@@ -2598,10 +2598,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - region
+                              - region
                             type: object
                           webhook:
                             description: ACMEIssuerDNS01ProviderWebhook specifies
@@ -2631,8 +2631,8 @@ spec:
                                   typically be the name of the provider, e.g. 'cloudflare'.
                                 type: string
                             required:
-                            - groupName
-                            - solverName
+                              - groupName
+                              - solverName
                             type: object
                         type: object
                       http01:
@@ -2784,8 +2784,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchFields:
@@ -2838,8 +2838,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                       type: object
@@ -2851,8 +2851,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - preference
-                                                  - weight
+                                                    - preference
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -2929,8 +2929,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchFields:
@@ -2983,14 +2983,14 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                       type: object
                                                     type: array
                                                 required:
-                                                - nodeSelectorTerms
+                                                  - nodeSelectorTerms
                                                 type: object
                                             type: object
                                           podAffinity:
@@ -3087,8 +3087,8 @@ spec:
                                                                       type: string
                                                                     type: array
                                                                 required:
-                                                                - key
-                                                                - operator
+                                                                  - key
+                                                                  - operator
                                                                 type: object
                                                               type: array
                                                             matchLabels:
@@ -3135,7 +3135,7 @@ spec:
                                                             is not allowed.
                                                           type: string
                                                       required:
-                                                      - topologyKey
+                                                        - topologyKey
                                                       type: object
                                                     weight:
                                                       description: weight associated
@@ -3145,8 +3145,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - podAffinityTerm
-                                                  - weight
+                                                    - podAffinityTerm
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -3227,8 +3227,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchLabels:
@@ -3272,7 +3272,7 @@ spec:
                                                         is not allowed.
                                                       type: string
                                                   required:
-                                                  - topologyKey
+                                                    - topologyKey
                                                   type: object
                                                 type: array
                                             type: object
@@ -3370,8 +3370,8 @@ spec:
                                                                       type: string
                                                                     type: array
                                                                 required:
-                                                                - key
-                                                                - operator
+                                                                  - key
+                                                                  - operator
                                                                 type: object
                                                               type: array
                                                             matchLabels:
@@ -3418,7 +3418,7 @@ spec:
                                                             is not allowed.
                                                           type: string
                                                       required:
-                                                      - topologyKey
+                                                        - topologyKey
                                                       type: object
                                                     weight:
                                                       description: weight associated
@@ -3428,8 +3428,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - podAffinityTerm
-                                                  - weight
+                                                    - podAffinityTerm
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -3510,8 +3510,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchLabels:
@@ -3555,7 +3555,7 @@ spec:
                                                         is not allowed.
                                                       type: string
                                                   required:
-                                                  - topologyKey
+                                                    - topologyKey
                                                   type: object
                                                 type: array
                                             type: object
@@ -3563,11 +3563,11 @@ spec:
                                       nodeSelector:
                                         additionalProperties:
                                           type: string
-                                        description: 'NodeSelector is a selector which
+                                        description: "NodeSelector is a selector which
                                           must be true for the pod to fit on a node.
-                                          Selector which must match a node''s labels
+                                          Selector which must match a node's labels
                                           for the pod to be scheduled on that node.
-                                          More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/'
+                                          More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/"
                                         type: object
                                       tolerations:
                                         description: If specified, the pod's tolerations.
@@ -3668,8 +3668,8 @@ spec:
                     type: object
                   type: array
               required:
-              - privateKeySecretRef
-              - server
+                - privateKeySecretRef
+                - server
               type: object
             ca:
               properties:
@@ -3678,7 +3678,7 @@ spec:
                     issued by this Issuer.
                   type: string
               required:
-              - secretName
+                - secretName
               type: object
             selfSigned:
               type: object
@@ -3707,12 +3707,12 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - path
-                      - roleId
-                      - secretRef
+                        - path
+                        - roleId
+                        - secretRef
                       type: object
                     kubernetes:
                       description: This contains a Role and Secret with a ServiceAccount
@@ -3744,11 +3744,11 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - role
-                      - secretRef
+                        - role
+                        - secretRef
                       type: object
                     tokenSecretRef:
                       description: This Secret contains the Vault token key
@@ -3762,7 +3762,7 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                   type: object
                 caBundle:
@@ -3779,9 +3779,9 @@ spec:
                   description: Server is the vault connection address
                   type: string
               required:
-              - auth
-              - path
-              - server
+                - auth
+                - path
+                - server
               type: object
             venafi:
               description: VenafiIssuer describes issuer configuration details for
@@ -3804,13 +3804,13 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                     url:
                       description: URL is the base URL for Venafi Cloud
                       type: string
                   required:
-                  - apiTokenSecretRef
+                    - apiTokenSecretRef
                   type: object
                 tpp:
                   description: TPP specifies Trust Protection Platform configuration
@@ -3835,14 +3835,14 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                     url:
                       description: URL is the base URL for the Venafi TPP instance
                       type: string
                   required:
-                  - credentialsRef
-                  - url
+                    - credentialsRef
+                    - url
                   type: object
                 zone:
                   description: Zone is the Venafi Policy Zone to use for this issuer.
@@ -3850,7 +3850,7 @@ spec:
                     the named zone policy. This field is required.
                   type: string
               required:
-              - zone
+                - zone
               type: object
           type: object
         status:
@@ -3890,27 +3890,27 @@ spec:
                     description: Status of the condition, one of ('True', 'False',
                       'Unknown').
                     enum:
-                    - "True"
-                    - "False"
-                    - Unknown
+                      - 'True'
+                      - 'False'
+                      - Unknown
                     type: string
                   type:
                     description: Type of the condition, currently ('Ready').
                     type: string
                 required:
-                - status
-                - type
+                  - status
+                  - type
                 type: object
               type: array
           type: object
       type: object
   versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha3
-    served: true
-    storage: false
+    - name: v1alpha2
+      served: true
+      storage: true
+    - name: v1alpha3
+      served: true
+      storage: false
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -3920,20 +3920,20 @@ metadata:
   name: issuers.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.conditions[?(@.type=="Ready")].status
-    name: Ready
-    type: string
-  - JSONPath: .status.conditions[?(@.type=="Ready")].message
-    name: Status
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.conditions[?(@.type=="Ready")].status
+      name: Ready
+      type: string
+    - JSONPath: .status.conditions[?(@.type=="Ready")].message
+      name: Status
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -3984,9 +3984,9 @@ spec:
                       description: keyAlgorithm is the MAC key algorithm that the
                         key is used for. Valid values are "HS256", "HS384" and "HS512".
                       enum:
-                      - HS256
-                      - HS384
-                      - HS512
+                        - HS256
+                        - HS384
+                        - HS512
                       type: string
                     keyID:
                       description: keyID is the ID of the CA key that the External
@@ -4011,12 +4011,12 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                   required:
-                  - keyAlgorithm
-                  - keyID
-                  - keySecretRef
+                    - keyAlgorithm
+                    - keyID
+                    - keySecretRef
                   type: object
                 privateKeySecretRef:
                   description: PrivateKey is the name of a secret containing the private
@@ -4031,7 +4031,7 @@ spec:
                         TODO: Add other useful fields. apiVersion, kind, uid?'
                       type: string
                   required:
-                  - name
+                    - name
                   type: object
                 server:
                   description: Server is the ACME server URL
@@ -4063,13 +4063,13 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               host:
                                 type: string
                             required:
-                            - accountSecretRef
-                            - host
+                              - accountSecretRef
+                              - host
                             type: object
                           akamai:
                             description: ACMEIssuerDNS01ProviderAkamai is a structure
@@ -4089,7 +4089,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               clientSecretSecretRef:
                                 properties:
@@ -4104,7 +4104,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               clientTokenSecretRef:
                                 properties:
@@ -4119,15 +4119,15 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               serviceConsumerDomain:
                                 type: string
                             required:
-                            - accessTokenSecretRef
-                            - clientSecretSecretRef
-                            - clientTokenSecretRef
-                            - serviceConsumerDomain
+                              - accessTokenSecretRef
+                              - clientSecretSecretRef
+                              - clientTokenSecretRef
+                              - serviceConsumerDomain
                             type: object
                           azuredns:
                             description: ACMEIssuerDNS01ProviderAzureDNS is a structure
@@ -4148,14 +4148,14 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               environment:
                                 enum:
-                                - AzurePublicCloud
-                                - AzureChinaCloud
-                                - AzureGermanCloud
-                                - AzureUSGovernmentCloud
+                                  - AzurePublicCloud
+                                  - AzureChinaCloud
+                                  - AzureGermanCloud
+                                  - AzureUSGovernmentCloud
                                 type: string
                               hostedZoneName:
                                 type: string
@@ -4166,11 +4166,11 @@ spec:
                               tenantID:
                                 type: string
                             required:
-                            - clientID
-                            - clientSecretSecretRef
-                            - resourceGroupName
-                            - subscriptionID
-                            - tenantID
+                              - clientID
+                              - clientSecretSecretRef
+                              - resourceGroupName
+                              - subscriptionID
+                              - tenantID
                             type: object
                           clouddns:
                             description: ACMEIssuerDNS01ProviderCloudDNS is a structure
@@ -4191,10 +4191,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - project
+                              - project
                             type: object
                           cloudflare:
                             description: ACMEIssuerDNS01ProviderCloudflare is a structure
@@ -4213,7 +4213,7 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               apiTokenSecretRef:
                                 properties:
@@ -4228,19 +4228,19 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                               email:
                                 type: string
                             required:
-                            - email
+                              - email
                             type: object
                           cnameStrategy:
                             description: CNAMEStrategy configures how the DNS01 provider
                               should handle CNAME records when found in DNS zones.
                             enum:
-                            - None
-                            - Follow
+                              - None
+                              - Follow
                             type: string
                           digitalocean:
                             description: ACMEIssuerDNS01ProviderDigitalOcean is a
@@ -4260,10 +4260,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - tokenSecretRef
+                              - tokenSecretRef
                             type: object
                           rfc2136:
                             description: ACMEIssuerDNS01ProviderRFC2136 is a structure
@@ -4302,10 +4302,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - nameserver
+                              - nameserver
                             type: object
                           route53:
                             description: ACMEIssuerDNS01ProviderRoute53 is a structure
@@ -4348,10 +4348,10 @@ spec:
                                       uid?'
                                     type: string
                                 required:
-                                - name
+                                  - name
                                 type: object
                             required:
-                            - region
+                              - region
                             type: object
                           webhook:
                             description: ACMEIssuerDNS01ProviderWebhook specifies
@@ -4381,8 +4381,8 @@ spec:
                                   typically be the name of the provider, e.g. 'cloudflare'.
                                 type: string
                             required:
-                            - groupName
-                            - solverName
+                              - groupName
+                              - solverName
                             type: object
                         type: object
                       http01:
@@ -4534,8 +4534,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchFields:
@@ -4588,8 +4588,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                       type: object
@@ -4601,8 +4601,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - preference
-                                                  - weight
+                                                    - preference
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -4679,8 +4679,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchFields:
@@ -4733,14 +4733,14 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                       type: object
                                                     type: array
                                                 required:
-                                                - nodeSelectorTerms
+                                                  - nodeSelectorTerms
                                                 type: object
                                             type: object
                                           podAffinity:
@@ -4837,8 +4837,8 @@ spec:
                                                                       type: string
                                                                     type: array
                                                                 required:
-                                                                - key
-                                                                - operator
+                                                                  - key
+                                                                  - operator
                                                                 type: object
                                                               type: array
                                                             matchLabels:
@@ -4885,7 +4885,7 @@ spec:
                                                             is not allowed.
                                                           type: string
                                                       required:
-                                                      - topologyKey
+                                                        - topologyKey
                                                       type: object
                                                     weight:
                                                       description: weight associated
@@ -4895,8 +4895,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - podAffinityTerm
-                                                  - weight
+                                                    - podAffinityTerm
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -4977,8 +4977,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchLabels:
@@ -5022,7 +5022,7 @@ spec:
                                                         is not allowed.
                                                       type: string
                                                   required:
-                                                  - topologyKey
+                                                    - topologyKey
                                                   type: object
                                                 type: array
                                             type: object
@@ -5120,8 +5120,8 @@ spec:
                                                                       type: string
                                                                     type: array
                                                                 required:
-                                                                - key
-                                                                - operator
+                                                                  - key
+                                                                  - operator
                                                                 type: object
                                                               type: array
                                                             matchLabels:
@@ -5168,7 +5168,7 @@ spec:
                                                             is not allowed.
                                                           type: string
                                                       required:
-                                                      - topologyKey
+                                                        - topologyKey
                                                       type: object
                                                     weight:
                                                       description: weight associated
@@ -5178,8 +5178,8 @@ spec:
                                                       format: int32
                                                       type: integer
                                                   required:
-                                                  - podAffinityTerm
-                                                  - weight
+                                                    - podAffinityTerm
+                                                    - weight
                                                   type: object
                                                 type: array
                                               requiredDuringSchedulingIgnoredDuringExecution:
@@ -5260,8 +5260,8 @@ spec:
                                                                   type: string
                                                                 type: array
                                                             required:
-                                                            - key
-                                                            - operator
+                                                              - key
+                                                              - operator
                                                             type: object
                                                           type: array
                                                         matchLabels:
@@ -5305,7 +5305,7 @@ spec:
                                                         is not allowed.
                                                       type: string
                                                   required:
-                                                  - topologyKey
+                                                    - topologyKey
                                                   type: object
                                                 type: array
                                             type: object
@@ -5313,11 +5313,11 @@ spec:
                                       nodeSelector:
                                         additionalProperties:
                                           type: string
-                                        description: 'NodeSelector is a selector which
+                                        description: "NodeSelector is a selector which
                                           must be true for the pod to fit on a node.
-                                          Selector which must match a node''s labels
+                                          Selector which must match a node's labels
                                           for the pod to be scheduled on that node.
-                                          More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/'
+                                          More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/"
                                         type: object
                                       tolerations:
                                         description: If specified, the pod's tolerations.
@@ -5418,8 +5418,8 @@ spec:
                     type: object
                   type: array
               required:
-              - privateKeySecretRef
-              - server
+                - privateKeySecretRef
+                - server
               type: object
             ca:
               properties:
@@ -5428,7 +5428,7 @@ spec:
                     issued by this Issuer.
                   type: string
               required:
-              - secretName
+                - secretName
               type: object
             selfSigned:
               type: object
@@ -5457,12 +5457,12 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - path
-                      - roleId
-                      - secretRef
+                        - path
+                        - roleId
+                        - secretRef
                       type: object
                     kubernetes:
                       description: This contains a Role and Secret with a ServiceAccount
@@ -5494,11 +5494,11 @@ spec:
                                 TODO: Add other useful fields. apiVersion, kind, uid?'
                               type: string
                           required:
-                          - name
+                            - name
                           type: object
                       required:
-                      - role
-                      - secretRef
+                        - role
+                        - secretRef
                       type: object
                     tokenSecretRef:
                       description: This Secret contains the Vault token key
@@ -5512,7 +5512,7 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                   type: object
                 caBundle:
@@ -5529,9 +5529,9 @@ spec:
                   description: Server is the vault connection address
                   type: string
               required:
-              - auth
-              - path
-              - server
+                - auth
+                - path
+                - server
               type: object
             venafi:
               description: VenafiIssuer describes issuer configuration details for
@@ -5554,13 +5554,13 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                     url:
                       description: URL is the base URL for Venafi Cloud
                       type: string
                   required:
-                  - apiTokenSecretRef
+                    - apiTokenSecretRef
                   type: object
                 tpp:
                   description: TPP specifies Trust Protection Platform configuration
@@ -5585,14 +5585,14 @@ spec:
                             TODO: Add other useful fields. apiVersion, kind, uid?'
                           type: string
                       required:
-                      - name
+                        - name
                       type: object
                     url:
                       description: URL is the base URL for the Venafi TPP instance
                       type: string
                   required:
-                  - credentialsRef
-                  - url
+                    - credentialsRef
+                    - url
                   type: object
                 zone:
                   description: Zone is the Venafi Policy Zone to use for this issuer.
@@ -5600,7 +5600,7 @@ spec:
                     the named zone policy. This field is required.
                   type: string
               required:
-              - zone
+                - zone
               type: object
           type: object
         status:
@@ -5640,27 +5640,27 @@ spec:
                     description: Status of the condition, one of ('True', 'False',
                       'Unknown').
                     enum:
-                    - "True"
-                    - "False"
-                    - Unknown
+                      - 'True'
+                      - 'False'
+                      - Unknown
                     type: string
                   type:
                     description: Type of the condition, currently ('Ready').
                     type: string
                 required:
-                - status
-                - type
+                  - status
+                  - type
                 type: object
               type: array
           type: object
       type: object
   versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha3
-    served: true
-    storage: false
+    - name: v1alpha2
+      served: true
+      storage: true
+    - name: v1alpha3
+      served: true
+      storage: false
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -5670,24 +5670,24 @@ metadata:
   name: orders.acme.cert-manager.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.state
-    name: State
-    type: string
-  - JSONPath: .spec.issuerRef.name
-    name: Issuer
-    priority: 1
-    type: string
-  - JSONPath: .status.reason
-    name: Reason
-    priority: 1
-    type: string
-  - JSONPath: .metadata.creationTimestamp
-    description: CreationTimestamp is a timestamp representing the server time when
-      this object was created. It is not guaranteed to be set in happens-before order
-      across separate operations. Clients may not set this value. It is represented
-      in RFC3339 form and is in UTC.
-    name: Age
-    type: date
+    - JSONPath: .status.state
+      name: State
+      type: string
+    - JSONPath: .spec.issuerRef.name
+      name: Issuer
+      priority: 1
+      type: string
+    - JSONPath: .status.reason
+      name: Reason
+      priority: 1
+      type: string
+    - JSONPath: .metadata.creationTimestamp
+      description: CreationTimestamp is a timestamp representing the server time when
+        this object was created. It is not guaranteed to be set in happens-before order
+        across separate operations. Clients may not set this value. It is represented
+        in RFC3339 form and is in UTC.
+      name: Age
+      type: date
   conversion:
     strategy: Webhook
     webhookClientConfig:
@@ -5759,11 +5759,11 @@ spec:
                 name:
                   type: string
               required:
-              - name
+                - name
               type: object
           required:
-          - csr
-          - issuerRef
+            - csr
+            - issuerRef
           type: object
         status:
           properties:
@@ -5801,9 +5801,9 @@ spec:
                             from the ACME server.
                           type: string
                       required:
-                      - token
-                      - type
-                      - url
+                        - token
+                        - type
+                        - url
                       type: object
                     type: array
                   identifier:
@@ -5822,7 +5822,7 @@ spec:
                       will be 'true' and the 'identifier' field will be 'example.com'.
                     type: boolean
                 required:
-                - url
+                  - url
                 type: object
               type: array
             certificate:
@@ -5849,13 +5849,13 @@ spec:
               description: State contains the current state of this Order resource.
                 States 'success' and 'expired' are 'final'
               enum:
-              - valid
-              - ready
-              - pending
-              - processing
-              - invalid
-              - expired
-              - errored
+                - valid
+                - ready
+                - pending
+                - processing
+                - invalid
+                - expired
+                - errored
               type: string
             url:
               description: URL of the Order. This will initially be empty when the
@@ -5865,12 +5865,12 @@ spec:
               type: string
           type: object
       required:
-      - metadata
+        - metadata
       type: object
   versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha3
-    served: true
-    storage: false
+    - name: v1alpha2
+      served: true
+      storage: true
+    - name: v1alpha3
+      served: true
+      storage: false
