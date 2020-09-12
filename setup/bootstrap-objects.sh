@@ -28,7 +28,7 @@ installManualObjects(){
   ##########
   # secrets
   ##########
-  kubectl -n kube-system create secret generic kms-vault --from-literal=account.json="$(echo $VAULT_KMS_ACCOUNT_JSON | base64 --decode)"
+  kubectl --namespace kube-system create secret generic kms-vault --from-literal=account.json="$(echo $VAULT_KMS_ACCOUNT_JSON | base64 --decode)"
 
   ###################
   # nginx
@@ -47,7 +47,7 @@ installManualObjects(){
   while [ $ROOK_NAMESPACE_READY != 0 ]; do
     echo "waiting for rook-ceph namespace to be fully ready..."
     # this is a hack to check for the namespace
-    kubectl -n rook-ceph wait --for condition=Established crd/volumes.rook.io > /dev/null 2>&1
+    kubectl --namespace rook-ceph wait --for condition=Established crd/volumes.rook.io > /dev/null 2>&1
     ROOK_NAMESPACE_READY="$?"
     sleep 5
   done
@@ -59,7 +59,7 @@ installManualObjects(){
   CERT_MANAGER_READY=1
   while [ $CERT_MANAGER_READY != 0 ]; do
     echo "waiting for cert-manager to be fully ready..."
-    kubectl -n cert-manager wait --for condition=Available deployment/cert-manager > /dev/null 2>&1
+    kubectl --namespace cert-manager wait --for condition=Available deployment/cert-manager > /dev/null 2>&1
     CERT_MANAGER_READY="$?"
     sleep 5
   done
@@ -67,7 +67,6 @@ installManualObjects(){
 
 }
 
-export KUBECONFIG="$REPO_ROOT/setup/kubeconfig"
 installManualObjects
 
 message "all done!"

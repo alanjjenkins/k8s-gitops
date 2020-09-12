@@ -1,19 +1,19 @@
 helmOperator:
   create: false
 git:
-  url: "git@github.com:billimek/k8s-gitops"
+  url: 'git@github.com:alanjjenkins/k8s-gitops.git'
 image:
-  repository: docker.io/fluxcd/flux
+  repository: raspbernetes/flux
   tag: 1.20.2
 registry:
   rps: 50
   burst: 50
 memcached:
   tolerations:
-  - key: "arm"
-    operator: "Exists"
+    - key: 'arm'
+      operator: 'Exists'
 additionalArgs:
-- --connect=ws://fluxcloud
+  - --connect=ws://fluxcloud
 prometheus:
   enabled: true
   serviceMonitor:
