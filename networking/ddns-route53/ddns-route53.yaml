@@ -17,7 +17,7 @@ spec:
         - name: ddns-route53
           image: crazymax/ddns-route53:2.1.0
           args:
-            - --schedule="*/10 * * * *"
+            - '--schedule="*/10 * * * *"'
           envFrom:
             - secretRef:
                 name: ddns-route53-config
