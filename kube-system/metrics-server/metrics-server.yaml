@@ -18,3 +18,8 @@ spec:
     image:
       repository: gcr.io/k8s-staging-metrics-server/metrics-server
       tag: v0.3.7
+    args:
+      - --cert-dir=/tmp
+      - --logtostderr
+      - --secure-port=8443
+      - --kubelet-preferred-address-types=InternalIP
