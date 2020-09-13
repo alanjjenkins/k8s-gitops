@@ -16,5 +16,5 @@ spec:
     version: 4.3.1
   values:
     image:
-      repository: k8s.gcr.io/metrics-server-arm64
+      repository: gcr.io/google-containers/metrics-server-arm64
       version: v0.3.6
