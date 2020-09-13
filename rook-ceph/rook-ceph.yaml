@@ -3,12 +3,12 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: rook-ceph
-  namespace: storage
+  namespace: rook-ceph
   annotations:
     fluxcd.io/ignore: 'false'
     fluxcd.io/automated: 'false'
 spec:
-  releaseName: rook-ceph-1
+  releaseName: rook-ceph
   chart:
     repository: https://charts.rook.io/release
     name: rook-ceph
