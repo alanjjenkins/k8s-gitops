@@ -1,0 +1,18 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: cert-manager
+  annotations:
+    fluxcd.io/automated: 'false'
+    fluxcd.io/tag.chart-image: semver:~0.4
+spec:
+  releaseName: cert-manager
+  chart:
+    repository: https://charts.jetstack.io
+    name: cert-manager
+    version: 0.15.2
+  valuesFrom:
+    - externalSourceRef:
+        url: https://raw.githubusercontent.com/alanjjenkins/k8s-gitops/master/cert-manager/cert-manager/cert-manager-values.yaml
