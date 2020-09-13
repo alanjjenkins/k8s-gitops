@@ -15,7 +15,7 @@ memcached:
 additionalArgs:
   - --connect=ws://fluxcloud
 prometheus:
-  enabled: true
+  enabled: false
   serviceMonitor:
     create: true
     interval: 30s
@@ -25,4 +25,4 @@ syncGarbageCollection:
   enabled: true
   dry: false
 dashboards:
-  enabled: true
+  enabled: false
