@@ -1,0 +1,16 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: metrics-server
+  namespace: kube-system
+  annotations:
+    flucd.io/automated: 'true'
+    fluxcd.io/tag.chart-image: semver:~v0.3
+spec:
+  releaseName: metrics-server
+  helmVersion: v3
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: metrics-server
+    version: 4.3.1
