@@ -1,5 +1,5 @@
 helmOperator:
-  create: false
+  create: true
 git:
   url: 'git@github.com:alanjjenkins/k8s-gitops.git'
 image:

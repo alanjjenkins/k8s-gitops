@@ -5,16 +5,16 @@ createCRD: true
 git:
   ssh:
     secretName: flux-git-deploy
-chartsSyncInterval: "10m"
-statusUpdateInterval: "10m"
+chartsSyncInterval: '10m'
+statusUpdateInterval: '10m'
 helm:
-  versions: "v3"
+  versions: 'v3'
 prometheus:
-  enabled: true
+  enabled: false
   serviceMonitor:
     create: true
     interval: 30s
     scrapeTimeout: 10s
     namespace: flux
 dashboards:
-  enabled: true
+  enabled: false
