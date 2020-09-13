@@ -5,10 +5,13 @@ metadata:
   name: ddns-route53
   namespace: networking
 spec:
+  selector:
+    app.kubernetes.io/name: ddns-route53
   template:
     spec:
       containers:
-        - image: crazymax/ddns-route53:2.1.0
+        - name: ddns-route53
+          image: crazymax/ddns-route53:2.1.0
           envFrom:
             - secretRef:
                 name: ddns-route53-config
