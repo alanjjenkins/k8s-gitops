@@ -18,4 +18,4 @@ spec:
     image:
       registry: gcr.io
       repository: google-containers/metrics-server-arm64
-      version: v0.3.6
+      tag: v0.3.6
