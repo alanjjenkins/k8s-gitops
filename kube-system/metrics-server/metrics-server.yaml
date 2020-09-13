@@ -11,11 +11,10 @@ spec:
   releaseName: metrics-server
   helmVersion: v3
   chart:
-    repository: https://charts.bitnami.com/bitnami
+    repository: https://kubernetes-charts.storage.googleapis.com/
     name: metrics-server
-    version: 4.3.1
+    version: 2.11.2
   values:
     image:
-      registry: gcr.io
-      repository: k8s-staging-metrics-server/metrics-server
+      repository: k8s.grc.io/k8s-staging-metrics-server/metrics-server
       tag: v0.3.6
