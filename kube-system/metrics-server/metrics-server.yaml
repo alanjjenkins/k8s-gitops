@@ -17,5 +17,5 @@ spec:
   values:
     image:
       registry: gcr.io
-      repository: google-containers/metrics-server-arm64
+      repository: k8s-staging-metrics-server/metrics-server
       tag: v0.3.6
