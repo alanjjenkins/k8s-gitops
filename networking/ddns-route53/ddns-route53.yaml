@@ -13,5 +13,5 @@ spec:
       containers:
         - image: crazymax/ddns-route53:2.1.0
           envFrom:
-            secretRef:
-              name: ddns-route53-config
+            - secretRef:
+                name: ddns-route53-config
