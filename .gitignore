@@ -17,7 +17,7 @@
 auth
 master.key
 *.snap
-.secrets
+.secrets/*
 !.secrets/seal
 setup/cluster/*cluster.yml
 *.rkestate
