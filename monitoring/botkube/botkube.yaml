@@ -1,0 +1,13 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: botkube
+  namespace: monitoring
+spec:
+  releaseName: botkube
+  helmVersion: v3
+  chart:
+    repository: https://infracloudio.github.io/charts
+    name: botkube
+    version: v0.10.0
