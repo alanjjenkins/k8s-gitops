@@ -5,9 +5,6 @@ metadata:
   name: ddns-route53
   namespace: networking
 spec:
-  metadata:
-    name: ddns-route53
-    namespace: networking
   template:
     spec:
       containers:
