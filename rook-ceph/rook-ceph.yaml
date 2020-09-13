@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/ignore: 'false'
     fluxcd.io/automated: 'false'
 spec:
-  releaseName: rook-ceph-6
+  releaseName: rook-ceph-7
   chart:
     repository: https://charts.rook.io/release
     name: rook-ceph
