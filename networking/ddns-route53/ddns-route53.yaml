@@ -6,8 +6,12 @@ metadata:
   namespace: networking
 spec:
   selector:
-    app.kubernetes.io/name: ddns-route53
+    matchLabels:
+      app: ddns-route53
   template:
+    metadata:
+      labels:
+        app: ddns-route53
     spec:
       containers:
         - name: ddns-route53
