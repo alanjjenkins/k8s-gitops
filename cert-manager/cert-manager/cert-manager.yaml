@@ -13,6 +13,3 @@ spec:
     repository: https://charts.jetstack.io
     name: cert-manager
     version: 0.15.2
-  valuesFrom:
-    - externalSourceRef:
-        url: https://raw.githubusercontent.com/alanjjenkins/k8s-gitops/master/cert-manager/cert-manager/cert-manager-values.yaml
