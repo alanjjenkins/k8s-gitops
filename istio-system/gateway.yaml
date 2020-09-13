@@ -4,6 +4,8 @@ kind: Gateway
 metadata:
   name: istio-system-ingress-gateway
   namespace: 'istio-system'
+  annotations:
+    external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
 spec:
   selector:
     istio: ingressgateway
