@@ -19,7 +19,7 @@ spec:
       cephcsi:
         image: raspbernetes/ceph-csi:v3.1.0
       registrar:
-        image: raspbernetes/csi-node-driver-registrar:1.6.0
+        image: raspbernetes/csi-node-driver-registrar:2.0.1
       provisioner:
         image: raspbernetes/csi-external-provisioner:1.6.0
       snapshotter:
