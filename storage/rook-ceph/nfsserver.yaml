@@ -13,5 +13,5 @@ spec:
       persistentVolumeClaim:
         claimName: storage-pvc
   # A key/value list of annotations
-  annotations:
-  #  key: value
+  # annotations:
+  # #  key: value
