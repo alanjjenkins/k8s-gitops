@@ -1,0 +1,22 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: replicapool
+  namespace: rook-ceph
+spec:
+  failureDomain: host
+  replicated:
+    size: 3
+  deviceClass: hdd
+---
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: ecpool
+  namespace: rook-ceph
+spec:
+  failureDomain: osd
+  erasureCoded:
+    dataChunks: 2
+    codingChunks: 1
+  deviceClass: hdd
