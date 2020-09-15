@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: ingress-cert
+  name: internal-ingress-cert
   namespace: istio-system
 spec:
   issuerRef:
     kind: ClusterIssuer
     name: selfsigned
-  secretName: ingress-cert
+  secretName: internal-ingress-cert
   commonName: internal.home.alan-jenkins.com
