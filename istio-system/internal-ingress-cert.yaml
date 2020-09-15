@@ -9,3 +9,4 @@ spec:
     name: selfsigned
   secretName: internal-ingress-cert
   commonName: internal.home.alan-jenkins.com
+  dnsNames: '*.internal.home.alan-jenkins.com'

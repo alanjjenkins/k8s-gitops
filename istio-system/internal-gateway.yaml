@@ -17,5 +17,8 @@ spec:
         number: 443
         name: https
         protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: internal-ingress-cert
       hosts:
         - 'internal.home.alan-jenkins.com'
