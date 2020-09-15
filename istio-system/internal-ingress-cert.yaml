@@ -4,6 +4,8 @@ metadata:
   name: ingress-cert
   namespace: istio-system
 spec:
-  issuerRef: selfsigned
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigned
   secretName: ingress-cert
   commonName: internal.home.alan-jenkins.com
