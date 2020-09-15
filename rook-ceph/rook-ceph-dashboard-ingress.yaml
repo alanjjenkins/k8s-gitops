@@ -1,0 +1,10 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-dashboard
+spec:
+  ingressClassName: istio
+  backend:
+    serviceName: rook-ceph-mgr-dashboard
+    servicePort: 7000
