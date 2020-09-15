@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: internal-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - 'internal.home.alan-jenkins.com'
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      hosts:
+        - 'internal.home.alan-jenkins.com'
