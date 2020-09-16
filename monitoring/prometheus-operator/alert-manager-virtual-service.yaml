@@ -1,0 +1,21 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: alert-manager
+  namespace: monitoring
+  annotations:
+    external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
+spec:
+  hosts:
+    - 'alert-manager.internal.home.alan-jenkins.com'
+  gateways:
+    - istio-system/internal-gateway
+  http:
+    - match:
+        - port: 443
+      route:
+        - destination:
+            port:
+              number: 9093
+            host: z-alertmanager.monitoring.svc.cluster.local
