@@ -1,0 +1,22 @@
+# ---
+# apiVersion: networking.istio.io/v1alpha3
+# kind: VirtualService
+# metadata:
+#   name: longhorn
+#   namespace: longhorn-system
+#   # annotations:
+#   #   external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
+# spec:
+#   hosts:
+#     - 'longhorn.internal.home.alan-jenkins.com'
+#   gateways:
+#     - istio-system/internal-gateway
+#   http:
+#     - match:
+#         - uri:
+#             prefix: /*
+#       route:
+#         - destination:
+#             port:
+#               number: 80
+#             host: longhorn-frontend.longhorn-system.svc.cluster.local
