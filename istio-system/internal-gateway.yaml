@@ -12,7 +12,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - 'internal.home.alan-jenkins.com'
+        - '*'
     - port:
         number: 443
         name: https
@@ -23,4 +23,4 @@ spec:
         minProtocolVersion: TLSV1_2
         maxProtocolVersion: TLSV1_3
       hosts:
-        - 'internal.home.alan-jenkins.com'
+        - '*'
