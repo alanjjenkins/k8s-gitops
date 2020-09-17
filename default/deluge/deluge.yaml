@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deluge
+  name: deluge
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deluge
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deluge
+    spec:
+      hostNetwork: true
+      containers:
+        - image: linuxserver/deluge
+          name: deluge
+          env:
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: TZ
+              value: 'Europe/London'
+            - name: UMASK_SET
+              value: '022'
+            - name: DELUGE_LOGLEVEL
+              value: error
+          volumeMounts:
+            # - name: storage
+            #   mountPath: /downloads
+            # - name: deluge-config
+            #   mountPath: /config
+          resources: {}
+      volumes:
+        # - name: storage
+        #   persistentVolumeClaim:
+        #     claimName: storage
+        # - name: deluge-config
+        #   persistentVolumeClaim:
+        #     claimName: deluge-config
