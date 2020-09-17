@@ -328,7 +328,7 @@ spec:
         excludeIPRanges: ''
         excludeInboundPorts: ''
         excludeOutboundPorts: ''
-        image: proxyv2
+        image: raspbernetes/istio-proxyv2:1.6.8
         includeIPRanges: '*'
         logLevel: warning
         privileged: false
@@ -345,7 +345,7 @@ spec:
         statusPort: 15020
         tracer: zipkin
       proxy_init:
-        image: proxyv2
+        image: raspbernetes/istio-proxyv2:1.6.8
         resources:
           limits:
             cpu: 100m
@@ -496,7 +496,7 @@ spec:
       enableProtocolSniffingForInbound: true
       enableProtocolSniffingForOutbound: true
       env: {}
-      image: pilot
+      image: raspbernetes/istio-pilot:1.6.8
       keepaliveMaxServerConnectionAge: 30m
       nodeSelector: {}
       podAntiAffinityLabelSelector: []
