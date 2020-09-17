@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   volumeMode: Filesystem
   storageClassName: rook-ceph-block
   resources:
