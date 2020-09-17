@@ -8,7 +8,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
-  storageClassName: longhorn
+  storageClassName: rook-ceph-block
   resources:
     requests:
       storage: 2Ti
