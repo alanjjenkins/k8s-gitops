@@ -15,5 +15,5 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              serviceName: rook-ceph-dashboard
-              servicePort: 80
+              serviceName: rook-ceph-mgr-dashboard
+              servicePort: 7000
