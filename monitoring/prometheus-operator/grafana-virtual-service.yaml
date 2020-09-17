@@ -8,7 +8,7 @@ metadata:
     external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
 spec:
   hosts:
-    - 'grafana.internal.home.alan-jenkins.com'
+    - 'grafana.internal'
   gateways:
     - istio-system/internal-gateway
   http:

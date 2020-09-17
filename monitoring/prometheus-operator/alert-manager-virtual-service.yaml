@@ -4,8 +4,8 @@ kind: VirtualService
 metadata:
   name: alert-manager
   namespace: monitoring
-  annotations:
-    external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
+  # annotations:
+  # external-dns.alpha.kubernetes.io/target: home.alan-jenkins.com
 spec:
   hosts:
     - 'alert-manager.internal.home.alan-jenkins.com'
