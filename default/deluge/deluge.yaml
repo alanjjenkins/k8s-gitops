@@ -37,13 +37,13 @@ spec:
           volumeMounts:
             # - name: storage
             #   mountPath: /downloads
-            # - name: deluge-config
-            #   mountPath: /config
+            - name: deluge-config
+              mountPath: /config
           resources: {}
       volumes:
         # - name: storage
         #   persistentVolumeClaim:
         #     claimName: storage
-        # - name: deluge-config
-        #   persistentVolumeClaim:
-        #     claimName: deluge-config
+        - name: deluge-config
+          persistentVolumeClaim:
+            claimName: deluge-config-1
